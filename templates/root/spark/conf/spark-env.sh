@@ -18,8 +18,9 @@ export MESOS_NATIVE_LIBRARY=/usr/local/lib/libmesos.so
 export SPARK_MEM={{default_spark_mem}}
 
 # Set JVM options and Spark Java properties
-SPARK_JAVA_OPTS+=" -Dspark.local.dir={{spark_local_dirs}}"
+SPARK_JAVA_OPTS+=" -Dspark.worker.timeout=30000 -Dspark.akka.timeout=30000 -Dspark.storage.blockManagerHeartBeatMs=30000  -Dspark.akka.retry.wait=30000 -Dspark.akka.frameSize=10000 -Dspark.local.dir=/mnt/spark"
 export SPARK_JAVA_OPTS
+
 
 export SPARK_MASTER_IP={{active_master}}
 
